@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instamash</title>
+</head>
+<body>
+    <!-- THIS WORKS OMG!!!!
+    <img src="{{ image1 }}" alt="User Image">
+    <img src="{{ image2 }}" alt="User Image">
+    -->
+    <form style="display: inline-block;" method="POST">
+        <input type="hidden" name="chose" value="left">
+        <input type="hidden" name="left_src" value="{{ image1 }}">
+        <input type="hidden" name="right_src" value="{{ image2 }}">
+        <input type="image" src="{{ image1 }}" >
+        <p>{{ elo1 }}</p>
+    </form>
+
+    <form style="display: inline-block;" method="POST">
+        <input type="hidden" name="chose" value="right">
+        <input type="hidden" name="left_src" value="{{ image1 }}">
+        <input type="hidden" name="right_src" value="{{ image2 }}">
+        <input type="image" src="{{ image2 }}" >
+        <p>{{ elo2 }}</p>
+    </form>
+
+</body>
+</html>
