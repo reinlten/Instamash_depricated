@@ -1,9 +1,6 @@
 import random
-import pygame
-import json
-
-from pip._vendor.progress.colors import black
-
+#import pygame
+#import json
 
 def getImage(n):
     if n == 0:
