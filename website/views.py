@@ -19,17 +19,21 @@ def home():
 
         newGirl = rate.rateGirlAndReturn(leftGirl, rightGirl, decision)
 
-        leftGirlElo = int(rate.data[rate.GirlToNumber(leftGirl)])
-        rightGirlElo = int(rate.data[rate.GirlToNumber(rightGirl)])
-        newGirlElo = int(rate.data[rate.GirlToNumber(newGirl)])
+        nameLeftGirl = rate.getName(leftGirl)
+        nameRightGirl = rate.getName(rightGirl)
+        nameNewGirl = rate.getName(newGirl)
+
+        leftGirlElo = int(rate.data[rate.girlToNumber(leftGirl)])
+        rightGirlElo = int(rate.data[rate.girlToNumber(rightGirl)])
+        newGirlElo = int(rate.data[rate.girlToNumber(newGirl)])
 
         if decision == "left":
-            ew_leftGirl = rate.ew(rate.data[rate.GirlToNumber(leftGirl)], rate.data[rate.GirlToNumber(newGirl)])
+            ew_leftGirl = rate.ew(rate.data[rate.girlToNumber(leftGirl)], rate.data[rate.girlToNumber(newGirl)])
             ew_rightGirl = 1-ew_leftGirl
 
-            return render_template("Instamash.html", image1=leftGirl, image2=newGirl, elo1=leftGirlElo, elo2=newGirlElo)
+            return render_template("Instamash.html", image1=leftGirl, image2=newGirl, elo1=leftGirlElo, elo2=newGirlElo, name1=nameLeftGirl, name2=nameNewGirl)
         if decision == "right":
-            return render_template("Instamash.html", image1=newGirl, image2=rightGirl, elo1=newGirlElo, elo2=rightGirlElo)
+            return render_template("Instamash.html", image1=newGirl, image2=rightGirl, elo1=newGirlElo, elo2=rightGirlElo, name1=nameNewGirl, name2=nameRightGirl)
         # data = request.form.get("value")
 
     return render_template("Instamash.html", image1=rate.getImage(1), image2=rate.getImage(2))

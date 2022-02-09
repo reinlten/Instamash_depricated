@@ -59,7 +59,9 @@ for girl in girls:
 
             pic_addr_span = driver.find_element(By.XPATH,
                                                 '//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a/div/div[1]/div/span')
-            g.write(pic_addr_span.find_element(By.TAG_NAME, "img").get_attribute("src") + "\n")
+
+            g.write(girl + pic_addr_span.find_element(By.TAG_NAME, "img").get_attribute("src") + "\n")
+
             print("progress: " + str((i / len(girls)) * 100) + "%")
         except NoSuchElementException:
             print("FAILURE")

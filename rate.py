@@ -1,28 +1,12 @@
+import os
 import random
-#import pygame
-#import json
+# import pygame
+# import json
+from re import split
+
 
 def getImage(n):
-    if n == 0:
-        return "/static/img/emma.png"
-    if n == 1:
-        return "/static/img/emma_w.png"
-    if n == 2:
-        return "/static/img/gal.png"
-    if n == 3:
-        return "/static/img/jen.png"
-    if n == 4:
-        return "/static/img/mila.png"
-    if n == 5:
-        return "/static/img/nat.png"
-    if n == 6:
-        return "/static/img/nat2.png"
-    if n == 7:
-        return "/static/img/scar.png"
-    if n == 8:
-        return "/static/img/mila2.png"
-
-
+    return (girl_link[n])
 
 
 # ist schlecht gecodet, sollte eigentlich (a-b) in der Klammer sein
@@ -33,26 +17,30 @@ def ew(a, b):
 # pygame.init()
 
 # screen = pygame.display.set_mode((600, 300))
+f = open("stars.txt", "r")
+gils = f.readlines()
+f.close()
 
-gils = ["emma stone", "emma watson", "gal gadot", "jennifer lawrence",
-        "mila kunis", "natalie portman", "natalie portman in besser", "scarlett johansson",
-        "mila kunis in heiß"]
+girl_link = os.listdir('website\static\img')
+data = []
 
-data = [1400, 1400, 1400, 1400, 1400, 1400, 1400, 1400, 1400]
-
-
-
-
-
-girl_link = ["/static/img/emma.png", "/static/img/emma_w.png", "/static/img/gal.png", "/static/img/jen.png",
-             "/static/img/mila.png", "/static/img/nat.png", "/static/img/nat2.png", "/static/img/scar.png", "/static/img/mila2.png"]
+for i in range(len(girl_link)):
+    data.append(1400)
+    girl_link[i] = "static/img/" + girl_link[i]
+    print(girl_link[i])
 
 
-
-def GirlToNumber(girl):
+def girlToNumber(girl):
     for i in range(len(girl_link)):
         if girl == girl_link[i]:
             return i
+
+
+def getName(girl):
+    s1 = girl.split("/")
+    s2 = s1[2].split(".")
+    return s2[0]
+
 
 check = False
 
@@ -77,7 +65,6 @@ pic2_save = pic2
 # events = pygame.event.get()
 
 def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
-
     elo1 = 0
     elo2 = 0
 
@@ -117,15 +104,10 @@ def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
     print()
     print()
 
-    #print("Erwartungswert für rechts:" + str(ew(data[elo2], data[elo1])))
-    #print("Erwartungswert für links:" + str(ew(data[elo1], data[elo2])))
+    # print("Erwartungswert für rechts:" + str(ew(data[elo2], data[elo1])))
+    # print("Erwartungswert für links:" + str(ew(data[elo1], data[elo2])))
 
     return newGirlLink
-
-
-
-
-
 
 
 def rateGirl(pic1, pic2, decision):
