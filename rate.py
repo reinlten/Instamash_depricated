@@ -19,7 +19,7 @@ k_val = 40  # ein Wert von 15 ist im schweizer Tischtennis einheitlich geltend. 
 k_elo_default_value = 1400
 
 
-def girlToNumber(girl):
+def girl_to_number(girl):
     for i in range(len(girl_link)):
         if girl == girl_link[i]:
             return i

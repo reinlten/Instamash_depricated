@@ -6,7 +6,7 @@ k_image_path_base = "static/img/"
 k_json_filename = "stars.json"
 
 
-def create_stars_json() -> None:
+def create_stars_json():
     hose = os.listdir('website/static/img')
     start_dict = {}
 
@@ -19,7 +19,7 @@ def create_stars_json() -> None:
         print(json_dumps_str, file=stars_json_file)
 
 
-def update_stars_elo_json(changes: dict[str, int]) -> None:
+def update_stars_elo_json(changes):
     stars_dict = None
     with open(k_json_filename) as stars_json_file:
         stars_dict = json.load(stars_json_file)
@@ -32,7 +32,7 @@ def update_stars_elo_json(changes: dict[str, int]) -> None:
         print(json_dumps_str, file=stars_json_file)
 
 
-def load_elos(names: list[str]) -> dict[str, int]:
+def load_elos(names):
     with open(k_json_filename) as stars_json_file:
         stars_dict = json.load(stars_json_file)
         result = {}
