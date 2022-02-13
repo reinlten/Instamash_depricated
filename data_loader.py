@@ -1,13 +1,12 @@
 import json
 import os
 
-k_default_elo = 1400
-k_image_path_base = "static/img/"
-k_json_filename = "stars.json"
+from config import *
+
 
 
 def create_stars_json():
-    hose = os.listdir('website/static/img')
+    hose = os.listdir(k_image_dir)
     start_dict = {}
 
     for img_filename in hose:
