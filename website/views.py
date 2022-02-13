@@ -6,15 +6,11 @@ import rate
 
 views = Blueprint("views", __name__)
 
-pic1 = rate.getImage(1)
-pic2 = rate.getImage(2)
-
 
 @views.route("/", methods=["GET", "POST"])
 def home():
+    stars_dict = data_loader.load_stars()
     if request.method == "POST":
-        # print(request.form.get("image"))
-
         leftGirl = request.form.get("left_src")
         rightGirl = request.form.get("right_src")
         decision = request.form.get("chose")
@@ -36,4 +32,4 @@ def home():
         if decision == "right":
             return render_template("Instamash.html", image1=newGirl, image2=rightGirl, elo1=newGirlElo, elo2=rightGirlElo, name1=nameNewGirl, name2=nameRightGirl)
 
-    return render_template("Instamash.html", image1=rate.getImage(1), image2=rate.getImage(2))
+    return render_template("Instamash.html", image1=stars_dict["Abella Danger"]["image_source"], image2=stars_dict["Aidra Fox"]["image_source"])

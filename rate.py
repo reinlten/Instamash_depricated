@@ -2,16 +2,9 @@ import os
 import random
 import json
 from re import split
-
 import data_loader
+import random
 
-girl_link = os.listdir('website\static\img')
-data = []
-
-for i in range(len(girl_link)):
-    data.append(1400)
-    girl_link[i] = "static/img/" + girl_link[i]
-    print(girl_link[i])
 
 # dieser Wert gibt an, um wie viel man maximal an elo dazu gewinnen kann.
 # kann man variabel je nach bewertungen anpassen
@@ -19,19 +12,10 @@ k_val = 40  # ein Wert von 15 ist im schweizer Tischtennis einheitlich geltend. 
 k_elo_default_value = 1400
 
 
-def girl_to_number(girl):
-    for i in range(len(girl_link)):
-        if girl == girl_link[i]:
-            return i
-
-
 def get_name(image_source):
     s1 = image_source.split("/")
     s2 = s1[2].split(".")
     return s2[0]
-
-def getImage(n):
-    return (girl_link[n])
 
 
 # ist schlecht gecodet, sollte eigentlich (a-b) in der Klammer sein
@@ -40,6 +24,7 @@ def ew(a, b):
 
 
 def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
+    stars_dict = data_loader.load_stars()
     girl1_name = get_name(linkToGirl1)
     girl2_name = get_name(linkToGirl2)
     start_elos = data_loader.load_elos([girl1_name, girl2_name])
@@ -61,6 +46,9 @@ def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
     newGirlLink = linkToGirl1
 
     while newGirlLink == linkToGirl1 or newGirlLink == linkToGirl2:
-        newGirlLink = girl_link[random.randrange(0, len(girl_link))]
+
+        keys = list(stars_dict)
+        name = random.choice(keys)
+        newGirlLink = stars_dict[name]["image_source"]
 
     return newGirlLink

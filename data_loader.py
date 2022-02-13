@@ -42,5 +42,10 @@ def load_elos(names):
         return result
 
 
+def load_stars():
+    with open(k_json_filename) as stars_json_file:
+        return json.load(stars_json_file)
+
+
 if __name__ == "__main__":
     create_stars_json()
