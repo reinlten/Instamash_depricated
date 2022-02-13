@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request
 import os
+
+import data_loader
 import rate
 
 views = Blueprint("views", __name__)
@@ -19,21 +21,19 @@ def home():
 
         newGirl = rate.rateGirlAndReturn(leftGirl, rightGirl, decision)
 
-        nameLeftGirl = rate.getName(leftGirl)
-        nameRightGirl = rate.getName(rightGirl)
-        nameNewGirl = rate.getName(newGirl)
+        nameLeftGirl = rate.get_name(leftGirl)
+        nameRightGirl = rate.get_name(rightGirl)
+        nameNewGirl = rate.get_name(newGirl)
 
-        leftGirlElo = int(rate.data[rate.girlToNumber(leftGirl)])
-        rightGirlElo = int(rate.data[rate.girlToNumber(rightGirl)])
-        newGirlElo = int(rate.data[rate.girlToNumber(newGirl)])
+        name_elo_dict = data_loader.load_elos([nameLeftGirl, nameRightGirl, nameNewGirl])
+
+        leftGirlElo = int(name_elo_dict[nameLeftGirl])
+        rightGirlElo = int(name_elo_dict[nameRightGirl])
+        newGirlElo = int(name_elo_dict[nameNewGirl])
 
         if decision == "left":
-            ew_leftGirl = rate.ew(rate.data[rate.girlToNumber(leftGirl)], rate.data[rate.girlToNumber(newGirl)])
-            ew_rightGirl = 1-ew_leftGirl
-
             return render_template("Instamash.html", image1=leftGirl, image2=newGirl, elo1=leftGirlElo, elo2=newGirlElo, name1=nameLeftGirl, name2=nameNewGirl)
         if decision == "right":
             return render_template("Instamash.html", image1=newGirl, image2=rightGirl, elo1=newGirlElo, elo2=rightGirlElo, name1=nameNewGirl, name2=nameRightGirl)
-        # data = request.form.get("value")
 
     return render_template("Instamash.html", image1=rate.getImage(1), image2=rate.getImage(2))
