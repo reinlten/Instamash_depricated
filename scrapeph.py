@@ -17,23 +17,52 @@ import wget
 
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-driver.get("https://de.pornhub.com/pornstars/top?si=1")
+driver.get("https://de.pornhub.com/pornstars?performerType=amateur")
 
 im18 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="modalWrapMTubes"]/div/div/button[contains(text(), "Ich bin 18 oder älter - Eingabe")]'))).click()
 
-stars_div_list = driver.find_elements(By.ID, "indexListContainer")
+girlContainer = driver.find_element(By.ID, "popularPornstars")
+girlPaths = girlContainer.find_elements(By.TAG_NAME, "li")
+girlPath = []
+for girl in girlPaths:
+    girlPath.append(girl.find_element(By.TAG_NAME, "a").get_attribute("href"))
 
-stars_list = []
+# stars_div_list = driver.find_elements(By.ID, "indexListContainer")
 
-f = open("stars.txt", "w")
+url = "https://de.pornhub.com/pornstars?performerType=amateur&page="
 
+for i in range(2,20):
+    driver.get(url+str(i))
+    time.sleep(2)
+    girlContainer = driver.find_element(By.ID, "popularPornstars")
+    girlPaths = girlContainer.find_elements(By.TAG_NAME, "li")
+    print(girlPaths)
+    for girl in girlPaths:
+        try:
+            girlPath.append(girl.find_element(By.TAG_NAME, "a").get_attribute("href"))
+        except NoSuchElementException:
+            print("no a")
 
-for div in stars_div_list:
-    #print(div.find_element(By.TAG_NAME, "a").text)
-    #stars_list.append(div.find_element(By.TAG_NAME, "a").text)
-    f.write(div.find_element(By.TAG_NAME, "a").text + "\n")
+print(girlPath)
+
+f = open("phlinks.txt", "w")
+
+for link in girlPath:
+    f.write(link+"\n")
 
 f.close()
+
+time.sleep(5)
+
+#f = open("stars.txt", "w")
+
+
+#for div in stars_div_list:
+    #print(div.find_element(By.TAG_NAME, "a").text)
+    #stars_list.append(div.find_element(By.TAG_NAME, "a").text)
+    #f.write(div.find_element(By.TAG_NAME, "a").text + "\n")
+
+#f.close()
 
 
 

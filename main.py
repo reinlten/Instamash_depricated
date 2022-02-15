@@ -3,7 +3,7 @@ from website import create_app
 app = create_app()
 
 if __name__ == '__main__':
-   app.run(debug=True)
+   app.run(debug=True, host="0.0.0.0")
 
 #from flask import Flask, render_template, url_for
 

@@ -27,7 +27,7 @@ data = []
 for i in range(len(girl_link)):
     data.append(1400)
     girl_link[i] = "static/img/" + girl_link[i]
-    print(girl_link[i])
+    #print(girl_link[i])
 
 
 def girlToNumber(girl):
@@ -98,11 +98,11 @@ def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
         if girl_link[i] == linkToGirl2:
             elo2 = i
 
-    for i in range(len(data)):
-        print(gils[i] + ": " + str(data[i]))
+    #for i in range(len(data)):
+    #    print(gils[i] + ": " + str(data[i]))
 
-    print()
-    print()
+    #print()
+    #print()
 
     # print("Erwartungswert für rechts:" + str(ew(data[elo2], data[elo1])))
     # print("Erwartungswert für links:" + str(ew(data[elo1], data[elo2])))
@@ -145,12 +145,17 @@ def rateGirl(pic1, pic2, decision):
     #    print()
     #    print()
 
-    print("Erwartungswert für rechts:" + str(ew(data[pic2], data[pic1])))
-    print("Erwartungswert für links:" + str(ew(data[pic1], data[pic2])))
-    print()
-    print()
+    #print("Erwartungswert für rechts:" + str(ew(data[pic2], data[pic1])))
+    #print("Erwartungswert für links:" + str(ew(data[pic1], data[pic2])))
+    #print()
+    #print()
 
 # screen.fill((0, 0, 0))
 # screen.blit(getImage(pic1), (0, 0))
 # screen.blit(getImage(pic2), (300, 0))
 # pygame.display.flip()
+
+
+
+
+
