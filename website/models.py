@@ -1,7 +1,6 @@
 from . import db
-from flask_login import UserMixin
 
-class Girldata(db.Model, UserMixin):
+class Girldata(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     elo = db.Column(db.Float)
