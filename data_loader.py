@@ -9,9 +9,14 @@ def create_stars_json():
     hose = os.listdir(k_image_dir)
     start_dict = {}
 
-    for img_filename in hose:
-        name = img_filename.split(".")[0]
-        start_dict[name] = {"elo": k_default_elo, "image_source": f"{k_image_path_base}{img_filename}"}
+    f = open("website/static/imgsrc.txt", "r")
+    img_filename = f.readlines()
+    f.close()
+
+    #for img_filename in hose:
+    for i in range(len(img_filename)):
+        name = hose[i]
+        start_dict[name] = {"elo": k_default_elo, "image_source": f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}"}
 
     with open(k_json_filename, 'w') as stars_json_file:
         json_dumps_str = json.dumps(start_dict, indent=4)

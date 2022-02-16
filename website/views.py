@@ -28,8 +28,8 @@ def home():
         newGirlElo = int(name_elo_dict[nameNewGirl])
 
         if decision == "left":
-            return render_template("Instamash.html", image1=leftGirl, image2=newGirl, elo1=leftGirlElo, elo2=newGirlElo, name1=nameLeftGirl, name2=nameNewGirl)
+            return render_template("Instamash2.html", image1=leftGirl, image2=newGirl, elo1=leftGirlElo, elo2=newGirlElo, name1=nameLeftGirl, name2=nameNewGirl)
         if decision == "right":
-            return render_template("Instamash.html", image1=newGirl, image2=rightGirl, elo1=newGirlElo, elo2=rightGirlElo, name1=nameNewGirl, name2=nameRightGirl)
+            return render_template("Instamash2.html", image1=newGirl, image2=rightGirl, elo1=newGirlElo, elo2=rightGirlElo, name1=nameNewGirl, name2=nameRightGirl)
 
-    return render_template("Instamash.html", image1=stars_dict["Abella Danger"]["image_source"], image2=stars_dict["Aidra Fox"]["image_source"])
+    return render_template("Instamash2.html", image1=stars_dict["1ladylove"]["image_source"], image2=stars_dict["1twothreecum"]["image_source"])

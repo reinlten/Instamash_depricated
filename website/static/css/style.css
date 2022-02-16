@@ -1,0 +1,82 @@
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+
+.flexbox-container{
+    display: flex;
+    justify-content: center;
+}
+
+.flexbox-item{
+    width: 250px;
+    margin: 30px;
+}
+
+.logos{
+    
+    position: relative;
+    display: flex;
+    padding-top: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.twitter{
+    width: 30px;
+}
+
+.insta{
+    width: 40px;
+}
+
+.ph{
+    width: 70px;
+}
+
+.flexbox-item-1 {
+    align-items: center;
+}
+
+.flexbox-item-2{
+}
+
+.header{
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name{
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label,
+input[type='image']{
+    width: 100%;
+    border-radius: 20%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 500px){
+    .flexbox-item{
+        width: 100%;
+        margin: 1px;
+    }
+    .name{
+        font-size: 15px
+    }
+}
+
+
+

@@ -137,7 +137,7 @@ def getabos():
     # 2]/div[1]/span/a/span")
 
     # print(followers_it)
-    # xpath = "//div[@style='position: relative; z-index: 1;']/div/div[2]/div/div[1]"
+    # xpath = "//div[@css='position: relative; z-index: 1;']/div/div[2]/div/div[1]"
 
     # popup = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH, xpath)))
 
