@@ -1,6 +1,6 @@
 import json
 import os
-
+from website import models, db
 from config import *
 
 
@@ -32,6 +32,12 @@ def create_stars_json():
 
         start_dict[name] = {"elo": k_default_elo, "image_source": f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}",
                             "ph": ph.strip(), "insta": insta.strip(), "twitter": twitter.strip()}
+
+        newGirl = models.Girldata(name=name, elo=k_default_elo, image_source=f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}",
+                                  ph=ph.strip(), insta=insta.strip(), twitter=twitter.strip())
+
+        db.session.add(newGirl)
+        db.session.commit()
 
     with open(k_json_filename, 'w') as stars_json_file:
         json_dumps_str = json.dumps(start_dict, indent=4)
