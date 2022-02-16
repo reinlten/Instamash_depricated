@@ -16,7 +16,22 @@ def create_stars_json():
     #for img_filename in hose:
     for i in range(len(img_filename)):
         name = hose[i]
-        start_dict[name] = {"elo": k_default_elo, "image_source": f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}"}
+        f = open("website/static/imgdir/" + name + "/social.txt","r")
+        social = f.readlines()
+        f.close()
+        ph = "none"
+        insta = "none"
+        twitter = "none"
+        for link in social:
+            if link.find("pornhub.com") != -1:
+                ph = link
+            if link.find("instagram.com") != -1:
+                insta = link
+            if link.find("twitter.com") != -1:
+                twitter = link
+
+        start_dict[name] = {"elo": k_default_elo, "image_source": f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}",
+                            "ph": ph.strip(), "insta": insta.strip(), "twitter": twitter.strip()}
 
     with open(k_json_filename, 'w') as stars_json_file:
         json_dumps_str = json.dumps(start_dict, indent=4)

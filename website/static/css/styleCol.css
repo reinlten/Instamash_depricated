@@ -41,6 +41,7 @@ html{
 }
 
 .flexbox-item-2{
+    align-items: center;
 }
 
 .header{

@@ -6,11 +6,17 @@
     <link rel="stylesheet" type="text/css" href="static/css/styleCol.css">
     <link href="http://fonts.cdnfonts.com/css/billabong" rel="stylesheet">
 </head>
+
 <body>
-    <!-- THIS WORKS OMG!!!!
-    <img src="{{ image1 }}" alt="User Image">
-    <img src="{{ image2 }}" alt="User Image">
-    -->
+
+    <script>
+        function divInOut(divName){
+          if(document.getElementById(divName)){
+            document.getElementById(divName).style.display = (document.getElementById(divName).style.display == 'none') ? 'inline' : 'none';
+          }
+        }
+    </script>
+
     <span class="header">Instamash</span>
 
     <div class="flexbox-container">
@@ -25,17 +31,17 @@
             </form>
             
             <div class="logos">
-                <div id="twitterlinks", style="display: inline;">
+                <div id="twitterlinks", style="display:inline;">
                     <a href="{{ twitter1 }}" target="_blank">
                         <img class="twitter", src="static/logos/Twitter-logo.png">
                     </a>
                 </div>
-                <div id="instalinks", style="display: inline;">
+                <div id="instalinks", style="display:inline;">
                     <a href="{{ insta1 }}" target="_blank">
                         <img class="insta", src="static/logos/Instagram-logo.png">
                     </a>
                 </div>
-                <div id="phlinks", style="display: inline;">
+                <div id="phlinks", style="display:inline;">
                     <a href="{{ ph1 }}" target="_blank">
                         <img class="ph", src="static/logos/Pornhub-logo.png">
                     </a>
@@ -54,17 +60,17 @@
                 <p class="name">{{ name2 }}</p>
             </form>
             <div class="logos">
-                <div id="twitterrechts", style="display: inline;">
+                <div id="twitterrechts", style="display:inline;">
                     <a href="{{ twitter2 }}" target="_blank">
                         <img class="twitter", src="static/logos/Twitter-logo.png">
                     </a>
                 </div>
-                <div id="instarechts", style="display: inline;">
+                <div id="instarechts", style="display:inline;">
                     <a href="{{ insta2 }}" target="_blank">
                         <img class="insta", src="static/logos/Instagram-logo.png">
                     </a>
                 </div>
-                <div id="phrechts", style="display: inline;">
+                <div id="phrechts", style="display:inline;">
                     <a href="{{ ph2 }}" target="_blank">
                         <img class="ph", src="static/logos/Pornhub-logo.png">
                     </a>
@@ -75,7 +81,33 @@
     </div>
 
     <script>
+        var insta1 = '{{ insta1 }}';
+        var insta2 = '{{ insta2 }}';
+        var ph1 = '{{ ph1 }}';
+        var ph2 = '{{ ph2 }}';
+        var twitter1 = '{{ twitter1 }}';
+        var twitter2 = '{{ twitter2 }}';
 
+
+        if(insta1 === 'none'){
+            divInOut('instalinks');
+            console.log("instalink links nicht vorhanden");
+        }
+        if(insta2 === 'none'){
+            divInOut('instarechts');
+        }
+        if(ph1 === 'none'){
+            divInOut('phlinks');
+        }
+        if(ph2 === 'none'){
+            divInOut('phrechts');
+        }
+        if(twitter1 === 'none'){
+            divInOut('twitterlinks');
+        }
+        if(twitter2 === 'none'){
+            divInOut('twitterRechts');
+        }
     </script>
 
 </body>
