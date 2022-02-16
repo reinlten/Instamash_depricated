@@ -1,0 +1,37 @@
+@import url('http://fonts.cdnfonts.com/css/billabong');
+
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-gap: 10px
+}
+
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.header{
+    font-family: 'Billabong', sans-serif;
+    font-size: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+}

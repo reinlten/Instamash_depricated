@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title font="Lobster">Instamash</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styleTop.css">
+    <link href="http://fonts.cdnfonts.com/css/billabong" rel="stylesheet">
+</head>
+
+<body>
+
+    <span class="header">Top 20</span>
+
+    <div class="grid-container">
+        {% for girl in girls %}
+        <div class="grid-item grid-item-1">
+            <img class="img" src="{{ girl.image_source }}">
+        </div>
+
+        <div class="grid-item grid-item-2">
+            <span>{{ girl.name }}</span>
+        </div>
+
+        <div class="grid-item grid-item-3">
+            <span>{{ girl.elo | int }}</span>
+        </div>
+
+        {% endfor %}
+        
+
+    </div>
+
+</body>
+</html>

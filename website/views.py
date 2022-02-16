@@ -12,7 +12,9 @@ views = Blueprint("views", __name__)
 
 @views.route("/", methods=["GET", "POST"])
 def home():
-    # stars_dict = data_loader.load_stars()
+    # stars_dict = data_loader.load_stars() # Diese Funktion nutzen um db zu erzeugen:
+                                            # Einmal random girl anklicken und dann Zeile auskommentieren,
+                                            # Server neu starten.
     if request.method == "POST":
         leftGirl = request.form.get("left_src")
         rightGirl = request.form.get("right_src")
@@ -58,4 +60,12 @@ def home():
     return render_template("Instamash2.html", image1=randGirl1.image_source, image2=randGirl2.image_source,
                            elo1=randGirl1.elo, elo2=randGirl2.elo, twitter1=randGirl1.twitter,
                            twitter2=randGirl2.twitter, insta1=randGirl1.insta, insta2=randGirl2.insta,
-                           ph1=randGirl1.ph, ph2=randGirl2.ph)
+                           ph1=randGirl1.ph, ph2=randGirl2.ph, name1=randGirl1.name, name2=randGirl2.name)
+
+
+@views.route("/top", methods=["GET", "POST"])
+def top():
+    girls = models.Girldata.query.order_by(models.Girldata.elo.desc()).limit(20).all()
+
+
+    return render_template("top.html", girls=girls)
