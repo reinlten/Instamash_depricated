@@ -19,7 +19,7 @@
         }
     </script>
 
-    <span class="header">Instamash</span>
+    <span class="header">who is hotter?</span>
 
     <div class="flexbox-container">
         <div class="flexbox-item flexbox-item-1">
@@ -27,7 +27,7 @@
                 <input type="hidden" name="chose" value="left">
                 <input type="hidden" name="left_src" value="{{ image1 }}">
                 <input type="hidden" name="right_src" value="{{ image2 }}">
-                <input type="image" src="{{ image1 }}" >
+                <input type="image" src="{{ image1 }}" draggable="false">
                 <!--<p>{{ elo1 }}</p>-->
                 <p class="name">{{ name1 }}</p>
             </form>
@@ -57,7 +57,7 @@
                 <input type="hidden" name="chose" value="right">
                 <input type="hidden" name="left_src" value="{{ image1 }}">
                 <input type="hidden" name="right_src" value="{{ image2 }}">
-                <input type="image" src="{{ image2 }}" >
+                <input type="image" src="{{ image2 }}" draggable="false">
                 <!--<p>{{ elo2 }}</p>-->
                 <p class="name">{{ name2 }}</p>
             </form>
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div style="font-size: 15px; position: relative; display: flex; align-items: center; justify-content: center; padding-top: 30px;">
+    <div style="font-size: 15px; position: relative; display: flex; align-items: center; justify-content: center; padding-top: 20px">
         <a href="/top">
             <p>Zu den Top 20 →</p>
         </a>

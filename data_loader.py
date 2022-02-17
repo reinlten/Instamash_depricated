@@ -9,12 +9,8 @@ def create_stars_json():
     hose = os.listdir(k_image_dir)
     start_dict = {}
 
-    f = open("website/static/imgsrc.txt", "r")
-    img_filename = f.readlines()
-    f.close()
-
     #for img_filename in hose:
-    for i in range(len(img_filename)):
+    for i in range(0,95):
         name = hose[i]
         f = open("website/static/imgdir/" + name + "/social.txt","r")
         social = f.readlines()
@@ -30,10 +26,7 @@ def create_stars_json():
             if link.find("twitter.com") != -1:
                 twitter = link
 
-        start_dict[name] = {"elo": k_default_elo, "image_source": f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}",
-                            "ph": ph.strip(), "insta": insta.strip(), "twitter": twitter.strip()}
-
-        newGirl = models.Girldata(name=name, elo=k_default_elo, image_source=f"{k_image_path_base}{name+'/'}{img_filename[i].strip()}",
+        newGirl = models.Girldata(name=name, elo=k_default_elo, image_source=f"{k_image_path_base}{name+'/1.jpg'}",
                                   ph=ph.strip(), insta=insta.strip(), twitter=twitter.strip())
 
         db.session.add(newGirl)

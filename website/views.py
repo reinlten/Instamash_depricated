@@ -12,7 +12,7 @@ views = Blueprint("views", __name__)
 
 @views.route("/", methods=["GET", "POST"])
 def home():
-    # stars_dict = data_loader.load_stars() # Diese Funktion nutzen um db zu erzeugen:
+    #data_loader.create_stars_json()         # Diese Funktion nutzen um db zu erzeugen:
                                             # Einmal random girl anklicken und dann Zeile auskommentieren,
                                             # Server neu starten.
     if request.method == "POST":
