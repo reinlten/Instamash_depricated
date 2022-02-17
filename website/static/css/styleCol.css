@@ -21,7 +21,7 @@ html{
     
     position: relative;
     display: flex;
-    padding-top: 100px;
+    padding-top: 80px;
     align-items: center;
     justify-content: center;
 }
@@ -64,14 +64,8 @@ html{
     justify-content: center;
 }
 
-.top{
-    font-size: 15px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
-}
+
+
 
 label,
 input[type='image']{
