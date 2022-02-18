@@ -10,7 +10,7 @@ def create_stars_json():
     start_dict = {}
 
     #for img_filename in hose:
-    for i in range(0,95):
+    for i in range(0,263):
         name = hose[i]
         f = open("website/static/imgdir/" + name + "/social.txt","r")
         social = f.readlines()
