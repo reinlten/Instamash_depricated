@@ -65,7 +65,7 @@ def home():
 
 @views.route("/top", methods=["GET", "POST"])
 def top():
-    girls = models.Girldata.query.order_by(models.Girldata.elo.desc()).limit(20).all()
+    girls = models.Girldata.query.order_by(models.Girldata.elo.desc()).limit(50).all()
 
 
     return render_template("top.html", girls=girls)
