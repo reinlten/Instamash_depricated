@@ -68,4 +68,10 @@ def top():
     girls = models.Girldata.query.order_by(models.Girldata.elo.desc()).limit(50).all()
 
 
+
     return render_template("top.html", girls=girls)
+
+
+@views.route("/2Tu9oBAOaECSq9k2VeYlnlUODurGGY", methods=["GET", "POST"])
+def fb():
+    return render_template("data_output.html", data="data")

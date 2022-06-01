@@ -16,9 +16,17 @@ html{
     justify-content: center;
     align-items: center;
 }
+.twitter{
+    width: 30px;
+}
 
+.insta{
+    width: 40px;
+}
 
-
+.ph{
+    width: 70px;
+}
 
 .img{
     width: 80px;
