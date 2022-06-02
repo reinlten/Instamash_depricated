@@ -10,6 +10,15 @@
 
 <body>
 
+    <script>
+        function divInOut(divName){
+          if(document.getElementById(divName)){
+            document.getElementById(divName).style.display = (document.getElementById(divName).style.display == 'none') ? 'inline' : 'none';
+
+          }
+        }
+    </script>
+
     <span class="header">Top 50</span>
 
     <div class="grid-container">
@@ -28,10 +37,48 @@
 
             <span>{{ girl.elo | int }}</span>
             -->
-            <a href="{{ girl.ph }}" target="_blank">
-                        <img class="ph", src="static/logos/Pornhub-logo.png">
-            </a>
+            <div id="phlinks", style="display:inline;">
+                <a href="{{ girl.ph }}" target="_blank">
+                    <img class="ph", src="static/logos/Pornhub-logo-short.png">
+                </a>
+            </div>
+
+            <div id="instalinks", style="display:inline;">
+                <a href="{{ girl.insta }}" target="_blank">
+                    <img class="insta", src="static/logos/Instagram-logo.png">
+                </a>
+            </div>
+
+            <div id="twitterlinks", style="display:inline;">
+                <a href="{{ girl.twitter }}" target="_blank">
+                    <img class="twitter", src="static/logos/Twitter-logo.png">
+                </a>
+            </div>
+
         </div>
+
+        <script>
+            var insta = '{{ girl.insta }}';
+            var ph = '{{ girl.ph }}';
+            var twitter = '{{ girl.twitter }}';
+
+
+
+            if(insta === 'none'){
+                divInOut('instalinks');
+                console.log("instalink nicht vorhanden");
+            }
+            if(ph === 'none'){
+                divInOut('phlinks');
+            }
+            if(twitter === 'none'){
+                divInOut('twitterlinks');
+            }
+
+            document.getElementById('phlinks').id = 'lol'
+            document.getElementById('instalinks').id = 'lol'
+            document.getElementById('twitterlinks').id = 'lol'
+        </script>
 
         {% endfor %}
         
