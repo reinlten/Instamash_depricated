@@ -7,7 +7,7 @@ html{
 
 .grid-container{
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px
 }
 
@@ -16,6 +16,22 @@ html{
     justify-content: center;
     align-items: center;
 }
+
+.grid-item-1{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.grid-item-2{
+    display: flex;
+    justify-content: center;
+}
+
+.grid-item-3{
+    display: flex;
+    justify-content: flex-start;
+}
+
 .twitter{
     width: 20px;
 }
