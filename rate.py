@@ -10,7 +10,7 @@ from website import models, db
 # dieser Wert gibt an, um wie viel man maximal an elo dazu gewinnen kann.
 # kann man variabel je nach bewertungen anpassen
 k_val = 40  # ein Wert von 15 ist im schweizer Tischtennis einheitlich geltend. lol
-k_elo_default_value = 1400
+k_elo_default_value = 1500
 
 
 def get_name(image_source):
@@ -34,8 +34,8 @@ def ew(a, b):
 
 
 def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
-    girl1 = models.Girldata.query.filter_by(image_source=linkToGirl1).first()
-    girl2 = models.Girldata.query.filter_by(image_source=linkToGirl2).first()
+    girl1 = models.Girldata.query.filter_by(image_id=linkToGirl1).first()
+    girl2 = models.Girldata.query.filter_by(image_id=linkToGirl2).first()
 
     girl1_name = girl1.name
     girl2_name = girl2.name
@@ -62,6 +62,6 @@ def rateGirlAndReturn(linkToGirl1, linkToGirl2, decision):
 
     while newGirlLink == linkToGirl1 or newGirlLink == linkToGirl2:
         keys = models.Girldata.query.order_by(func.random()).first()
-        newGirlLink = keys.image_source
+        newGirlLink = keys.image_id
 
     return newGirlLink
