@@ -1,5 +1,10 @@
 from flask import Blueprint, render_template, request
 from sqlalchemy import func
+import random
+
+import os
+
+import data_loader
 import rate
 from website import models
 
