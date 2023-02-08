@@ -1,9 +1,3 @@
-import os
-import random
-import json
-from re import split
-import data_loader
-import random
 from sqlalchemy import func
 from website import models, db
 
